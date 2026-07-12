@@ -139,6 +139,7 @@ def Menu():
     global running
     global comand
     global hz
+    global time_for_step
     print("=============================================================")
     print("|--------------------OZCORE V | EMULATOR--------------------|")
     print("=============================================================")
@@ -150,12 +151,13 @@ def Menu():
     print("REGISTERS | 0-7 | " , f"{a_reg[0]:03}", f"{a_reg[1]:03}", f"{a_reg[2]:03}", f"{a_reg[3]:03}", f"{a_reg[4]:03}", f"{a_reg[5]:03}", f"{a_reg[6]:03}", f"{a_reg[7]:03}", "|" ,"", instruction ,"","", "|")
     print("=============================================================")
     if running == False:
-        comand = input("Command :")
-        if comand == "start":
-            print("=======")
-            hz = input("hz:")
-            print("=======")
-            running = True
+            comand = input("Command :")
+            if comand == "start":
+                print("=======")
+                hz = int(input("hz:"))          
+                time_for_step = 1 / hz           
+                print("=======")
+                running = True
         
 Menu()   
 while running:
